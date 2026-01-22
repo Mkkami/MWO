@@ -17,9 +17,12 @@ autonumber
     alt Potwierdzenie
         U->>B: Potwierdzenie wyboru
         B-->>U: Wyświetlenie komunikatu o potwierdzeniu
-    else Anulowanie
-        U->>B: Anuluje proces
-        U-->>B: Powrót do ekranu startowego
+    else Anulowanie transakcji
+         rect rgb(0, 0, 0)
+            critical Referencja: Anulowanie transakcji
+                U->>B: Wybranie opcji "Anuluj"
+            end
+        end
     end
 
 ```
@@ -38,9 +41,12 @@ autonumber
     B ->>B: Dostosowanie interfejsu
     B -->>U: Wyświetlenie interfejsu
 
-    opt Anulowanie
-        U ->> B: Anulowanie procesu
-        B -->> U: Powrót
+    opt Anulowanie transacji
+      rect rgb(0, 0, 0)
+            critical Referencja: Anulowanie transakcji
+                U->>B: Wybranie opcji "Anuluj"
+            end
+        end
     end    
 ```
 ### Otrzymanie instrukcji na ekranie
@@ -65,7 +71,7 @@ sequenceDiagram
     alt Kontynuacja
         System-->>Uzytkownik: Prośba o płatność
     else Anulowanie transakcji
-        rect rgb(240, 240, 240)
+        rect rgb(0, 0, 0)
             critical Referencja: Anulowanie transakcji
                 Uzytkownik->>System: Wybranie opcji "Anuluj"
             end
