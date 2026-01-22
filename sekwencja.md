@@ -1,6 +1,7 @@
 # Diagram sekwencji - Szybki wybór rodzaju biletu
 ```mermaid
 sequenceDiagram
+autonumber
     actor U as Użytkownik
     participant B as Biletomat
 
@@ -13,7 +14,10 @@ sequenceDiagram
     U->>B: Wybór biletu
     B-->>U: Wyświetlenie podsumowania
 
-    opt Anulowanie
+    alt Potwierdzenie
+        U->>B: Potwierdzenie wyboru
+        B-->>U: Wyświetlenie komunikatu o potwierdzeniu
+    else Anulowanie
         U->>B: Anuluje proces
         U-->>B: Powrót do ekranu startowego
     end
@@ -22,6 +26,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
+autonumber
     actor U as Użytkownik
     participant B as Biletomat
 
