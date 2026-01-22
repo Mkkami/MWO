@@ -19,3 +19,21 @@ sequenceDiagram
     end
 
 ```
+
+```mermaid
+sequenceDiagram
+    actor U as Użytkownik
+    participant B as Biletomat
+
+    U ->> B: Rozpoczęcie interakcji
+    B -->>U: Wyświetlenie opcji języka
+
+    U ->> B: Wybór języka
+    B ->>B: Dostosowanie interfejsu
+    B -->>U: Wyświetlenie interfejsu
+
+    opt Anulowanie
+        U ->> B: Anulowanie procesu
+        B -->> U: Powrót
+    end    
+```
