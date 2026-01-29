@@ -1,21 +1,24 @@
 ```mermaid
 classDiagram
 
-  class Uzytkownik {}
+  class Użytkownik {}
 
   class SystemBiletomatu {
     -List krokiWyboruBiletu
     -string pomoc
-    +List rozpoczęcieInterkacji()
+    +List rozpoczęcieInterakcji()
     +void anuluj()
     +void wyświetleniePomocy()
   }
 
-  Uzytkownik --> SystemBiletomatu
+  Użytkownik --> SystemBiletomatu
 ```
 
 ```mermaid
 classDiagram
+  class Użytkownik {
+  }
+
   class SystemBiletomatu {
     +void anuluj()
     +void wybórPowoduAnulowania()
@@ -29,7 +32,7 @@ classDiagram
     +void resetInterfejsu()
   }
 
-    Uzytkownik --> SystemBiletomatu : anulowanie
+    Użytkownik --> SystemBiletomatu : anulowanie
     SystemBiletomatu --> Logger : zapis danych
     SystemBiletomatu --> Interfejs : wyswietla
 
